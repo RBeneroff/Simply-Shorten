@@ -2,14 +2,25 @@ var express = require('express');
 var router = express.Router();
 var Schema = require('../models/schema.js');
 
-// Routes
+
 router.get('/', function(req, res) {
-  res.render('WORKING?');
+
 })
 
+// add new URL
+router.post('/', function(req,res) {
 
+})
 
+// update URL
+router.put('/', function(req, res) {
 
+})
+
+// delete URL
+router.delete('/', function(req, res) {
+
+})
 
 
 module.exports = router;

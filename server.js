@@ -3,20 +3,22 @@ var express        = require('express'),
     mongoose       = require('mongoose'),
     logger         = require('morgan'),
     port           = process.env.PORT || 3000,
-    Schema           = require('./models/schema'),
+    Schema           = require('./models/schema'), //needed?
     app            = express();
 var path           = require('path');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(logger('dev'));
 
 // var usersController = require("./controllers/users.js");
 // app.use('/users', usersController);
 
 //Mongoose
-var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/simply-shorten');
 var db = mongoose.connection;
+
 db.on('error', function(err){
   console.log(err);
 });

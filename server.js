@@ -3,7 +3,7 @@ var express        = require('express'),
     mongoose       = require('mongoose'),
     logger         = require('morgan'),
     port           = process.env.PORT || 3000,
-    // User           = require('./models/user'),
+    Schema           = require('./models/schema'),
     app            = express();
 var path           = require('path');
 
@@ -26,13 +26,15 @@ db.once('open', function() {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function(req, res) {
-  res.render('index');
-});
+app.use('/', require('./controllers/usersController.js'));
 
-app.use(function(req, res) {
-    res.sendFile(__dirname + '/public/index.html');
-});
+// router.get('/', function(req, res) {
+//   res.render('index');
+// });
+
+// app.use(function(req, res) {
+//     res.sendFile(__dirname + '/public/index.html');
+// });
 
 app.listen(process.env.PORT || 3000, function() {
 console.log('I HERE ---> 3000');

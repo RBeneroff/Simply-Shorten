@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simply-Shorten</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src='js/app.js'></script>
+    <script type="text/javascript" src="js/urlController.js"></script>
+    <link rel="stylesheet" href="/css/style.css" media="screen" title="no title">
+  </head>
+  <body ng-app='Site'>
+    <header>
+      <h1>Simply-Shorten</h1>
+      <!-- <nav class='nav'>
+      </nav> -->
+    </header>
+    <div ng-controller='SiteController as site'>
+      <main ui-view></main>
+    </div>
+  </body>
+</html>

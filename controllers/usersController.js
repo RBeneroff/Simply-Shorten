@@ -4,8 +4,12 @@ var Schema = require('../models/schema.js');
 
 // Routes
 router.get('/', function(req, res) {
-  res.send('WORKING?');
+  res.render('WORKING?');
 })
+
+
+
+
 
 
 module.exports = router;

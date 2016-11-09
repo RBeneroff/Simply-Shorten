@@ -16,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/RBeneroff/Simply-Shorten/issues"
   },
+  "engines": {
+  "node": "7.0.0"
+  },
   "homepage": "https://github.com/RBeneroff/Simply-Shorten#readme",
   "dependencies": {
     "body-parser": "^1.15.2",

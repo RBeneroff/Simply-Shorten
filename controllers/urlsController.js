@@ -8,7 +8,7 @@ var Url = Schema.Url
 router.get('/', function(req, res) {
   Url.find({}).exec()
   .then(function(urls) {
-    // console.log(urls, 'grabbing them');
+    console.log(urls, 'grabbing them');
     res.json({urls: urls});
   })
   .catch(function(err) {
@@ -55,6 +55,18 @@ router.delete('/:id', function(req, res) {
     res.status(500);
   })
 });
+
+router.delete('/', function(req, res) {
+  Url.remove({urls: req.body.urls})
+  .then(function(urls) {
+    console.log(urls);
+    res.json(urls);
+  })
+  .catch(function(err) {
+    console.log(err);
+    res.status(500);
+  })
+})
 
 module.exports = router;
 

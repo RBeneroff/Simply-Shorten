@@ -23,7 +23,7 @@
         var newUrl = '';
         var urlObj = '';
         return $http({
-          url: "https://www.googleapis.com/urlshortener/v1/url?key=keyhere",
+          url: "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDyo_ZNPgLhmKEHYT7elKV7_58-yBFlvlk",
           method: 'POST',
           data: {longUrl : longUrl, origin : origin, newUrl : newUrl}
         })
@@ -67,6 +67,10 @@
 
       function clearHistory(urls) {
         console.log('clearing');
+        $http.delete('/urls', urls)
+        // .then(function(response) {
+        //   console.log(response);
+          // self.urls = response.data.urls;
       }
 
       this.updateUrl = updateUrl;

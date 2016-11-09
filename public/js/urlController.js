@@ -59,10 +59,6 @@
         .then(function(response) {
           console.log(response, 'what is saving to db');
         })
-        // .then(function(response) {
-        //   console.log(response);
-        //   self.urls = response.data.urls;
-        // })
       }
 
       function removeUrl(url, index) {

@@ -21,10 +21,10 @@
       // }
 
       function addUrl(newUrl) {
+        console.log('shorten')
         $http.post('/urls', newUrl)
         .then(function(response) {
           self.urls = response.data.urls;
-
           newUrl.input = '';
         })
         .catch(function(err) {
@@ -41,6 +41,7 @@
       }
 
       function removeUrl(id) {
+        console.log('clicked')
         $http.delete(`/urls/${id}`)
         .then(function(response) {
           console.log(response);
@@ -48,9 +49,14 @@
         })
       }
 
+      function clearHistory(urls) {
+        console.log('clearing');
+      }
+
       this.addUrl = addUrl;
       this.updateUrl = updateUrl;
       this.removeUrl = removeUrl;
+      this.clearHistory = clearHistory;
 
     } //SiteController
 })() //IIFE

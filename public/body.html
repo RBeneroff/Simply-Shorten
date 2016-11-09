@@ -1,6 +1,6 @@
 
 <div class='shorten'>
-  <form class="long-url" ng-submit-'site.addUrl(newUrl)'>
+  <form class="long-url" ng-click='site.addUrl(newUrl)'>
     <input type="text" name="long-url" placeholder="enter extremely long URL here">
     <!-- ng-model='newUrl.long-url' -->
     <br>
@@ -16,8 +16,8 @@
     <p>Shortened URL {{url.short-url}}</p>
     <p>Origin of URL {{url.origin}}</p>
     <button type="button" name="button" ng-click='site.updateUrl(url)'>Update</button>
-    <button type="button" name="button" ng-click='site.removeUrl(url._id)'>Remove</button>
+    <button type="button" name="button" ng-click='site.removeUrl(id)'>Remove</button>
   </div>
   <br><br>
-  <button type="button" name="button">Clear All History</button>
+  <button type="button" name="button" ng-click='site.clearHistory(urls)'>Clear All History</button>
 </div>

@@ -39,9 +39,6 @@
           console.log('urlObj contains --->', urlObj);
           $http.post('/urls', urlObj)
           .then(function(response) {
-            // console.log(response, 'in urlController.js')
-            // self.urls = response.data.urls;
-            // self.urls.push(urlObj);
             longUrl.input = '';
             origin.input = '';
           })
@@ -50,19 +47,6 @@
           });
         })
       }
-
-      // this.updateUrl = function(url) {
-      //   console.log('clicking')
-      //   return $http({
-      //     url: `/urls/${url._id}`,
-      //     method: 'PUT',
-      //     data: {url : url}
-      //   })
-      //   .then(function(response) {
-      //     console.log(response, 'what is saving to db');
-      //     //     self.url = response.data.url;
-      //   })
-      // }
 
       function updateUrl(url) {
         console.log('clicking udpate', url);
@@ -93,7 +77,7 @@
 })() //IIFE
 
 
-
+// UNUSED CODE
 
 // function addUrl(longUrl, origin, newUrl) {
 //   // self.newUrl = response.data.id;

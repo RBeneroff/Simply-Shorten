@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-// var Url = require('../models/schema');
 var Schema = require("../models/schema.js")
 var Url = Schema.Url
 
@@ -31,19 +30,6 @@ router.post('/', function(req, res) {
   });
 });
 
-// GET - one urlObj (so you can update & delete it)
-// router.get('/urls/:id', function(req, res) {
-//   Url.findById(req.params.id).exec()
-//   .then(function(urlObj) {
-//     console.log(urlObj, 'from get request to update');
-//     res.json(urlObj);
-//   })
-//   .catch(function(err) {
-//     console.log(err);
-//     res.status(500);
-//   })
-// });
-
 // UPDATE -  one URl Obj
 router.put('/:id', function(req, res) {
   Url.findOneAndUpdate({_id: req.body._id}, req.body)
@@ -70,5 +56,19 @@ router.delete('/:id', function(req, res) {
   })
 });
 
-
 module.exports = router;
+
+// UNUSED CODE
+
+// GET - one urlObj (so you can update & delete it)
+// router.get('/urls/:id', function(req, res) {
+//   Url.findById(req.params.id).exec()
+//   .then(function(urlObj) {
+//     console.log(urlObj, 'from get request to update');
+//     res.json(urlObj);
+//   })
+//   .catch(function(err) {
+//     console.log(err);
+//     res.status(500);
+//   })
+// });

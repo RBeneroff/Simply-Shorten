@@ -17,11 +17,11 @@
 </div>
 
 <div class='history'>
+  <!-- <h1>ng-repeat here: {{site.urls}}</h1> -->
   <div class='repeat-urls' ng-repeat='url in site.urls'>
-    <!-- <p>Extremely long URL {{url.long-url}}</p>
-    <p>Date {{url.createdAt}}</p>
-    <p>Shortened URL {{url.short-url}}</p>
-    <p>Origin of URL {{url.origin}}</p> -->
+    <p>Extremely long URL {{url.longUrl}}</p>
+    <p>Shortened URL {{url.newUrl}}</p>
+    <p>Origin of URL {{url.origin}}</p>
     <button type="button" name="button" ng-click='site.updateUrl(url)'>Update</button>
     <button type="button" name="button" ng-click='site.removeUrl(id)'>Remove</button>
   </div>

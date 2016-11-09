@@ -3,27 +3,30 @@
     .module('Site')
     .controller('SiteController', SiteController)
 
-    function SiteController($scope, $http) {
+    function SiteController($scope, $http, $state) {
       var self = this;
-      var url = [];
+      var urls = [];
+      this.working = 'WORKING';
 
       function getUrls() {
-        $http.get('/')
+        $http.get('/urls')
         .then(function(response) {
           self.urls = response.data.urls;
+          console.log(response.data)
         })
         .catch(function(err) {
           console.log('error', err)
         })
       }
+      getUrls()
 
       this.shortenUrl = function(longUrl, origin, newUrl) {
         var newUrl = '';
         var urlObj = '';
         return $http({
-          url: "https://www.googleapis.com/urlshortener/v1/url?key=keygoeshere",
+          url: "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDyo_ZNPgLhmKEHYT7elKV7_58-yBFlvlk",
           method: 'POST',
-          data: {longUrl : longUrl, origin : origin}
+          data: {longUrl : longUrl, origin : origin, newUrl : newUrl}
         })
         .then(function(response) {
           newUrl = response.data.id;
@@ -37,9 +40,9 @@
           console.log('urlObj contains --->', urlObj);
           $http.post('/', urlObj)
           .then(function(response) {
-            console.log(response)
+            console.log(response, 'in urlController.js')
             // self.urls = response.data.urls;
-            self.urls.push(urlObj);
+            // self.urls.push(urlObj);
             longUrl.input = '';
             origin.input = '';
           })

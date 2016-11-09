@@ -28,9 +28,11 @@ db.once('open', function() {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', require('./controllers/usersController.js'));
+var urlsController = require("./controllers/urlsController.js");
+app.use('/urls', urlsController);
+// app.use('/', require('./controllers/urlsController.js'));
 
-// router.get('/', function(req, res) {
+// app.get('/', function(req, res) {
 //   res.render('index');
 // });
 

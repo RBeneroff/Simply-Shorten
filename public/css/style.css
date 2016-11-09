@@ -13,32 +13,35 @@
   box-shadow: 0 8px 6px -6px #717F77;*/
 }
 
-.side {
+body {
+background-image: url('background-05.png');
+}
+
+.top {
   background-color: #96FFC1;
-  height: 100vh;
-  /*width: 30%;*/
+  height: 13vh;
+  width: 100%;
 }
 
 .shorten {
   padding: 5vh;
-  /*margin-top: -5vh;*/
   margin-left: 30vh;
 }
 
 .form-container{
-  /*margin-top: -3.5vh;*/
+  margin-top: -9vh;
 }
 
 .labels {
-  /*margin-left: -30vh;*/
+  margin: 10vh 0 0 5vh;
   font-family: Bebas Neue;
   font-size: 20px;
 }
 
 .history {
-  /*margin-top: 10vh;
-  padding: 3vh;*/
-  /*margin-left: 35vh;*/
+  padding: 5vh;
+  margin-top: -9vh;
+  margin-left: 30vh;
 }
 
 .form-container {
@@ -46,19 +49,18 @@
 }
 
 #flex {
-  /*margin-left: 35vh;  */
   display: flex;
-  align-items: center;
-  /*display: inline-block;*/
-  /*flex-flow: row wrap;*/
-  /*flex-direction: row;*/
-  /*justify-content: space-between;*/
+  align-items: baseline;;
+  justify-content: space-around;
 }
 
 .URL {
-  /*flex: 1;*/
   margin: 10px;
-  /*display: inline-block;*/
+}
+
+#cut-off-length {
+  width: 15vh;
+  overflow: scroll;
 }
 
 .remove-button {
@@ -81,6 +83,11 @@
   cursor: pointer;
   border-radius: 5px;
   text-align: center;
+}
+
+#clear-all {
+  font-family: Bebas Neue;
+  font-size: 20px;
 }
 
 .button {

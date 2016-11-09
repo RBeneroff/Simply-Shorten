@@ -1,9 +1,9 @@
-<!-- <div class='side'>
-</div> -->
-
+<div class='top'>
 <h1 id='title'>Simply-Shorten</h1>
+</div>
+
+<h3 class='labels'>Unecessarily Long Url</h3>
 <div class='shorten'>
-  <h3 class='labels'>Unecessarily Long Url</h3>
   <div class='form-container'>
   <form class='input' class="long-url" ng-submit='site.shortenUrl(longUrl, origin, newUrl)'>
     <!-- <div class='flex'> -->
@@ -17,11 +17,13 @@
   <br><br>
 </div>
 
+<h3 class='labels'>URL History</h3>
+<button id='clear-all' class='button' type="button" name="button" ng-click='site.clearHistory(urls)'>Clear All History</button>
+
 <div class='history'>
-  <h3 class='labels'>URL History</h3>
   <div class='form-container'>
   <div id='flex' class='repeat-urls' ng-repeat='url in site.urls'>
-    <p class='URL'>{{url.longUrl}}</p>
+    <p id='cut-off-length' class='URL'>{{url.longUrl}}</p>
     <p class='URL'><a href="{{url.newUrl}}" target="_blank">{{url.newUrl}}</a></p>
     <form class='URL' ng-submit='site.updateUrl(url)'>
       <input ng-model='url.origin'></input>
@@ -31,5 +33,4 @@
     </div>
   <br><br>
   </div>
-  <button class='button' type="button" name="button" ng-click='site.clearHistory(urls)'>Clear All History</button>
 </div>

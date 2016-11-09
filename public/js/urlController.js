@@ -23,7 +23,7 @@
         var newUrl = '';
         var urlObj = '';
         return $http({
-          url: "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDyo_ZNPgLhmKEHYT7elKV7_58-yBFlvlk",
+          url: "https://www.googleapis.com/urlshortener/v1/url?key=keyhere",
           method: 'POST',
           data: {longUrl : longUrl, origin : origin, newUrl : newUrl}
         })

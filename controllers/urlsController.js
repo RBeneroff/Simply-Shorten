@@ -29,30 +29,20 @@ router.post('/', function(req, res) {
     // console.log(urlObj, 'this is urlObj');
     res.send(urlObj);
   });
-  // console.log(req.body.urlObj);
-  // Url.create(req.body.urlObj)
-  // .then(function(urlObj) {
-  //   console.log(urlObj);
-  //   res.json(urlObj);
-  // })
-  // .catch(function(err) {
-  //   console.log(err);
-  //   res.status(400);
-  // })
 });
 
 // GET - one urlObj (so you can update & delete it)
-// router.get('/:id', function(req, res) {
-//   Url.findById(req.params.id).exec()
-//   .then(function(urlObj) {
-//     console.log(urlObj);
-//     res.json(urlObj);
-//   })
-//   .catch(function(err) {
-//     console.log(err);
-//     res.status(500);
-//   })
-// });
+router.get('/urls/:id', function(req, res) {
+  Url.findById(req.params.id).exec()
+  .then(function(urlObj) {
+    console.log(urlObj);
+    res.json(urlObj);
+  })
+  .catch(function(err) {
+    console.log(err);
+    res.status(500);
+  })
+});
 
 // UPDATE -  one URl Obj
 // router.put('/:id', function(req, res) {
@@ -68,18 +58,18 @@ router.post('/', function(req, res) {
 // });
 
 // DELETE - one URL Obj
-// router.delete('/:id', function(req, res) {
-//   console.log(req.params.id);
-//   Url.remove({_id: req.params.id})
-//   .then(function(urlObj) {
-//     console.log(urlObj);
-//     res.json(urlObj);
-//   })
-//   .catch(function(err) {
-//     console.log(err);
-//     res.status(500);
-//   })
-// });
+router.delete('/:id', function(req, res) {
+  console.log(req.params.id);
+  Url.remove({_id: req.params.id})
+  .then(function(urlObj) {
+    console.log(urlObj);
+    res.json(urlObj);
+  })
+  .catch(function(err) {
+    console.log(err);
+    res.status(500);
+  })
+});
 
 
 module.exports = router;

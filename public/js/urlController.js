@@ -52,39 +52,20 @@
         })
       }
 
-      // function addUrl(longUrl, origin, newUrl) {
-      //   // self.newUrl = response.data.id;
-      //   console.log('add to db --->', longUrl, origin, newUrl)
-      //   $http.post('/', longUrl, origin, newUrl)
+      // function updateUrl(url) {
+      //   $http.put(`/urls/${url._id}`, url)
       //   .then(function(response) {
-      //     console.log(response)
-      //     self.urls = response.data.urls;
-      //     longUrl.input = '';
+      //     console.log(response);
+      //     self.url = response.data.url;
       //   })
-      //   .then(function(response) {
-      //     if (response.data.status === 200) {
-      //       self.urls.push(urlObj);
-      //     }
-      //   })
-      //   .catch(function(err) {
-      //     console.log('error', err)
-      //   });
       // }
 
-      function updateUrl(url) {
-        $http.put(`/urls/${url._id}`, url)
+      function removeUrl(url) {
+        console.log('clicked')
+        $http.delete(`/urls/${url._id}`, url)
         .then(function(response) {
           console.log(response);
           self.url = response.data.url;
-        })
-      }
-
-      function removeUrl(id) {
-        console.log('clicked')
-        $http.delete(`/urls/${id}`)
-        .then(function(response) {
-          console.log(response);
-          self.urls = response.data.urls;
         })
       }
 
@@ -92,10 +73,31 @@
         console.log('clearing');
       }
 
-      // this.addUrl = addUrl;
-      this.updateUrl = updateUrl;
+      // this.updateUrl = updateUrl;
       this.removeUrl = removeUrl;
       this.clearHistory = clearHistory;
 
     } //SiteController
 })() //IIFE
+
+
+
+
+// function addUrl(longUrl, origin, newUrl) {
+//   // self.newUrl = response.data.id;
+//   console.log('add to db --->', longUrl, origin, newUrl)
+//   $http.post('/', longUrl, origin, newUrl)
+//   .then(function(response) {
+//     console.log(response)
+//     self.urls = response.data.urls;
+//     longUrl.input = '';
+//   })
+//   .then(function(response) {
+//     if (response.data.status === 200) {
+//       self.urls.push(urlObj);
+//     }
+//   })
+//   .catch(function(err) {
+//     console.log('error', err)
+//   });
+// }

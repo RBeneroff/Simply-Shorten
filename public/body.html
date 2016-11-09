@@ -1,15 +1,19 @@
-
+<div class='side'>
+<h1 id='title'>Simply-Shorten</h1>
 <div class='shorten'>
-  <form class="long-url" ng-submit='site.shortenUrl(longUrl, origin, newUrl)'>
+  <form class='input' class="long-url" ng-submit='site.shortenUrl(longUrl, origin, newUrl)'>
     <!-- ng-submit='site.addUrl(longUrl, origin)' -->
-    <input type="text" ng-model="longUrl" placeholder="enter extremely long URL here">
-    <input type="text" ng-model="origin" placeholder="where url is from">
-    <input type="text" ng-model="newUrl" value={{site.newUrl}}>
+    <h3 class='labels'>Unecessarily Long Url</h3>
+    <!-- <div class='flex'> -->
+      <input class='inputs' type="text" ng-model="longUrl" placeholder="www.extremely-long-url-here.com">
+      <input class='inputs' type="text" ng-model="origin" placeholder="Origin (Ex: NY Times)">
+    <!-- </div> -->
     <br>
-    <button type="submit" name="button">Shorten</button>
+    <button class='button' type="submit" name="button">Shorten</button>
     <!-- ng-click='site.shortenUrl(longUrl, origin)' -->
   </form>
-  <h4>Output short URL here {{site.newUrl}}</h4>
+  <br><br>
+  <h3  class='labels'>Output short URL here {{site.newUrl}}</h3>
 </div>
 
 <div class='history'>
@@ -22,5 +26,7 @@
     <button type="button" name="button" ng-click='site.removeUrl(id)'>Remove</button>
   </div>
   <br><br>
-  <button type="button" name="button" ng-click='site.clearHistory(urls)'>Clear All History</button>
+  <button class='button' type="button" name="button" ng-click='site.clearHistory(urls)'>Clear All History</button>
+</div>
+
 </div>

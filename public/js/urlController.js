@@ -5,7 +5,7 @@
 
     function SiteController($scope, $http, $state) {
       var self = this;
-      var urls = [];
+      // var urls = [];
 
       function getUrls() {
         $http.get('/urls')
@@ -23,7 +23,7 @@
         var newUrl = '';
         var urlObj = '';
         return $http({
-          url: "https://www.googleapis.com/urlshortener/v1/url?key=keyhidden",
+          url: "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDyo_ZNPgLhmKEHYT7elKV7_58-yBFlvlk",
           method: 'POST',
           data: {longUrl : longUrl, origin : origin, newUrl : newUrl}
         })
@@ -36,13 +36,16 @@
             newUrl: newUrl,
             origin: origin
           }
-          console.log('urlObj contains --->', urlObj);
+          // console.log('urlObj contains --->', urlObj);
           $http.post('/urls', urlObj)
           .then(function(response) {
-            console.log(urlObj, 'after saving')
-            console.log(urlObj.newUrl)
-            // longUrl.input = '';
-            // origin.input = '';
+            // $scope.$apply(function() {
+              longUrl.input = '';
+              origin.input = '';
+              self.urls.push(urlObj);
+              console.log(urlObj, 'after saving');
+              console.log(urlObj.newUrl);
+            // })
           })
           .catch(function(err) {
             console.log('error', err)
@@ -56,20 +59,28 @@
         .then(function(response) {
           console.log(response, 'what is saving to db');
         })
+        // .then(function(response) {
+        //   console.log(response);
+        //   self.urls = response.data.urls;
+        // })
       }
 
-      function removeUrl(url) {
+      function removeUrl(url, index) {
         console.log('clicked')
         $http.delete(`/urls/${url._id}`, url)
         .then(function(response) {
           console.log(response);
           self.url = response.data.url;
+          self.urls.splice(index, 1);
         })
       }
 
       function clearHistory(urls) {
         console.log('clearing');
         $http.delete('/urls', urls)
+        .then(function(response) {
+          self.urls = [];
+        })
       }
 
       this.updateUrl = updateUrl;

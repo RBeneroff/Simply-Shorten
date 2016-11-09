@@ -2,7 +2,6 @@
 <h1 id='title'>Simply-Shorten</h1>
 <div class='shorten'>
   <form class='input' class="long-url" ng-submit='site.shortenUrl(longUrl, origin, newUrl)'>
-    <!-- ng-submit='site.addUrl(longUrl, origin)' -->
     <h3 class='labels'>Unecessarily Long Url</h3>
     <!-- <div class='flex'> -->
       <input class='inputs' type="text" ng-model="longUrl" placeholder="www.extremely-long-url-here.com">
@@ -10,14 +9,12 @@
     <!-- </div> -->
     <br>
     <button class='button' type="submit" name="button">Shorten</button>
-    <!-- ng-click='site.shortenUrl(longUrl, origin)' -->
   </form>
   <br><br>
-  <h3  class='labels'>Output short URL here {{site.newUrl}}</h3>
+  <h3  class='labels'>Output short URL here {{site.url.newUrl}}</h3>
 </div>
 
 <div class='history'>
-  <!-- <h1>ng-repeat here: {{site.urls}}</h1> -->
   <div class='repeat-urls' ng-repeat='url in site.urls'>
     <p>{{url.longUrl}}</p>
     <p><a href="{{url.newUrl}}" target="_blank">{{url.newUrl}}</a></p>
@@ -32,6 +29,3 @@
 </div>
 
 </div>
-
- <!-- ng-click='site.updateUrl(url)' -->
-<!-- Origin of URL {{url.origin}} -->

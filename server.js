@@ -16,7 +16,9 @@ app.use(logger('dev'));
 
 //Mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/simply-shorten');
+// mongoose.connect('mongodb://localhost/simply-shorten');
+var mongoURI =  process.env.MONGODB_URI || 'mongodb://localhost/simply-shorten';
+mongoose.connect(mongoURI);
 var db = mongoose.connection;
 
 db.on('error', function(err){

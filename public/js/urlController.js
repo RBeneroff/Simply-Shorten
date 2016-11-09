@@ -6,13 +6,12 @@
     function SiteController($scope, $http, $state) {
       var self = this;
       var urls = [];
-      this.working = 'WORKING';
 
       function getUrls() {
         $http.get('/urls')
         .then(function(response) {
           self.urls = response.data.urls;
-          console.log(response.data)
+          // console.log(response.data)
         })
         .catch(function(err) {
           console.log('error', err)
@@ -38,9 +37,9 @@
             origin: origin
           }
           console.log('urlObj contains --->', urlObj);
-          $http.post('/', urlObj)
+          $http.post('/urls', urlObj)
           .then(function(response) {
-            console.log(response, 'in urlController.js')
+            // console.log(response, 'in urlController.js')
             // self.urls = response.data.urls;
             // self.urls.push(urlObj);
             longUrl.input = '';
@@ -52,13 +51,26 @@
         })
       }
 
-      // function updateUrl(url) {
-      //   $http.put(`/urls/${url._id}`, url)
+      // this.updateUrl = function(url) {
+      //   console.log('clicking')
+      //   return $http({
+      //     url: `/urls/${url._id}`,
+      //     method: 'PUT',
+      //     data: {url : url}
+      //   })
       //   .then(function(response) {
-      //     console.log(response);
-      //     self.url = response.data.url;
+      //     console.log(response, 'what is saving to db');
+      //     //     self.url = response.data.url;
       //   })
       // }
+
+      function updateUrl(url) {
+        console.log('clicking udpate', url);
+        $http.put(`/urls/${url._id}`, url)
+        .then(function(response) {
+          console.log(response, 'what is saving to db');
+        })
+      }
 
       function removeUrl(url) {
         console.log('clicked')
@@ -73,7 +85,7 @@
         console.log('clearing');
       }
 
-      // this.updateUrl = updateUrl;
+      this.updateUrl = updateUrl;
       this.removeUrl = removeUrl;
       this.clearHistory = clearHistory;
 

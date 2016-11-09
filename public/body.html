@@ -21,8 +21,10 @@
   <div class='repeat-urls' ng-repeat='url in site.urls'>
     <p>Extremely long URL {{url.longUrl}}</p>
     <p>Shortened URL {{url.newUrl}}</p>
-    <p>Origin of URL {{url.origin}}</p>
-    <!-- <button type="button" name="button" ng-click='site.updateUrl(url)'>Update</button> -->
+    <form ng-submit='site.updateUrl(url)'>
+      <input ng-model='url.origin'>{{url.origin}}</input>
+      <button type="submit" name="button">Update</button>
+    </form>
     <button type="button" name="button" ng-click='site.removeUrl(url)'>Remove</button>
   </div>
   <br><br>
@@ -30,3 +32,6 @@
 </div>
 
 </div>
+
+ <!-- ng-click='site.updateUrl(url)' -->
+<!-- Origin of URL {{url.origin}} -->

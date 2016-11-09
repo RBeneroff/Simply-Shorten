@@ -11,6 +11,10 @@
         url: '/',
         templateUrl: 'body.html'
       })
+      // .state('body.update', {
+      //   url: '/update',
+      //   templateUrl: 'update.html'
+      // })
 
       $urlRouterProvider.otherwise('/');
 

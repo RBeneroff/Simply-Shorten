@@ -9,7 +9,7 @@ var Url = Schema.Url
 router.get('/', function(req, res) {
   Url.find({}).exec()
   .then(function(urls) {
-    console.log(urls, 'grabbing them');
+    // console.log(urls, 'grabbing them');
     res.json({urls: urls});
   })
   .catch(function(err) {
@@ -32,23 +32,10 @@ router.post('/', function(req, res) {
 });
 
 // GET - one urlObj (so you can update & delete it)
-router.get('/urls/:id', function(req, res) {
-  Url.findById(req.params.id).exec()
-  .then(function(urlObj) {
-    console.log(urlObj);
-    res.json(urlObj);
-  })
-  .catch(function(err) {
-    console.log(err);
-    res.status(500);
-  })
-});
-
-// UPDATE -  one URl Obj
-// router.put('/:id', function(req, res) {
-//   Url.findOneAndUpdate({_id: req.body._id})
+// router.get('/urls/:id', function(req, res) {
+//   Url.findById(req.params.id).exec()
 //   .then(function(urlObj) {
-//     console.log(urlObj);
+//     console.log(urlObj, 'from get request to update');
 //     res.json(urlObj);
 //   })
 //   .catch(function(err) {
@@ -57,9 +44,21 @@ router.get('/urls/:id', function(req, res) {
 //   })
 // });
 
+// UPDATE -  one URl Obj
+router.put('/:id', function(req, res) {
+  Url.findOneAndUpdate({_id: req.body._id}, req.body)
+  .then(function(urlObj) {
+    console.log(urlObj, 'updated?');
+    res.json(urlObj);
+  })
+  .catch(function(err) {
+    console.log(err);
+    res.status(500);
+  })
+});
+
 // DELETE - one URL Obj
 router.delete('/:id', function(req, res) {
-  console.log(req.params.id);
   Url.remove({_id: req.params.id})
   .then(function(urlObj) {
     console.log(urlObj);

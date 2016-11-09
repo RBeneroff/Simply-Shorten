@@ -21,11 +21,10 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
   var urlObj = new Url({
     longUrl: req.body.longUrl,
-    newurl: req.body.newUrl,
-    origin: req.body.origin
-  });
+    newUrl: req.body.newUrl,
+    origin: req.body.origin,
+  })
   urlObj.save(function(err, urlObj) {
-    // console.log(urlObj, 'this is urlObj');
     res.send(urlObj);
   });
 });
@@ -56,6 +55,7 @@ router.delete('/:id', function(req, res) {
   })
 });
 
+// DELETE - all history
 router.delete('/', function(req, res) {
   Url.remove({urls: req.body.urls})
   .then(function(urls) {

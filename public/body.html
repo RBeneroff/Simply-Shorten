@@ -22,7 +22,7 @@
     <p>Extremely long URL {{url.longUrl}}</p>
     <p>Shortened URL {{url.newUrl}}</p>
     <form ng-submit='site.updateUrl(url)'>
-      <input ng-model='url.origin'>{{url.origin}}</input>
+      <input ng-model='url.origin'></input>
       <button type="submit" name="button">Update</button>
     </form>
     <button type="button" name="button" ng-click='site.removeUrl(url)'>Remove</button>

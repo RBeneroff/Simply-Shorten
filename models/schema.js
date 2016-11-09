@@ -7,6 +7,7 @@ var UrlSchema = new Schema({
   longUrl: String,
   newUrl: String,
   origin: String,
+  field: String
   // createdAt: Date,
   // updatedAt: Date,
 });

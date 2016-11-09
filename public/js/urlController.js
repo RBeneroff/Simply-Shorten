@@ -29,8 +29,8 @@
         })
         .then(function(response) {
           newUrl = response.data.id;
-          console.log(response, 'with URLs in it');
-          console.log('long URL --->', longUrl, 'from:', origin, 'short URL --->', newUrl);
+          // console.log(response, 'with URLs in it');
+          // console.log('long URL --->', longUrl, 'from:', origin, 'short URL --->', newUrl);
           urlObj = {
             longUrl: longUrl,
             newUrl: newUrl,
@@ -39,8 +39,10 @@
           console.log('urlObj contains --->', urlObj);
           $http.post('/urls', urlObj)
           .then(function(response) {
-            longUrl.input = '';
-            origin.input = '';
+            console.log(urlObj, 'after saving')
+            console.log(urlObj.newUrl)
+            // longUrl.input = '';
+            // origin.input = '';
           })
           .catch(function(err) {
             console.log('error', err)
@@ -68,9 +70,6 @@
       function clearHistory(urls) {
         console.log('clearing');
         $http.delete('/urls', urls)
-        // .then(function(response) {
-        //   console.log(response);
-          // self.urls = response.data.urls;
       }
 
       this.updateUrl = updateUrl;

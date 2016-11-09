@@ -3,15 +3,15 @@ mongoose.Promise = global.Promise;
 
 var Schema = mongoose.Schema;
 
-var UrlSchema = new Schema({
-  longlUrl: String,
+var urlSchema = new Schema({
+  longUrl: String,
   newUrl: String,
   origin: String,
-  createdAt: Date,
-  updatedAt: Date,
+  // createdAt: Date,
+  // updatedAt: Date,
 });
 
-var UrlModel = mongoose.model('Url', UrlSchema);
+var UrlModel = mongoose.model('Url', urlSchema);
 
 module.exports = {
   Url : UrlModel,

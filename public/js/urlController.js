@@ -21,7 +21,7 @@
         var newUrl = '';
         var urlObj = '';
         return $http({
-          url: "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDyo_ZNPgLhmKEHYT7elKV7_58-yBFlvlk",
+          url: "https://www.googleapis.com/urlshortener/v1/url?key=keygoeshere",
           method: 'POST',
           data: {longUrl : longUrl, origin : origin}
         })
@@ -37,7 +37,7 @@
           console.log('urlObj contains --->', urlObj);
           $http.post('/', urlObj)
           .then(function(response) {
-            console.log(response, urlObj)
+            console.log(response)
             // self.urls = response.data.urls;
             self.urls.push(urlObj);
             longUrl.input = '';

@@ -4,9 +4,9 @@ mongoose.Promise = global.Promise;
 var Schema = mongoose.Schema;
 
 var UrlSchema = new Schema({
-  originalUrl: String,
+  longlUrl: String,
   newUrl: String,
-  siteOfOrigin: String,
+  origin: String,
   createdAt: Date,
   updatedAt: Date,
 });

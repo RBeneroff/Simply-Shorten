@@ -8,7 +8,7 @@
       var url = [];
 
       function getUrls() {
-        $http.get('/urls')
+        $http.get('/')
         .then(function(response) {
           self.urls = response.data.urls;
         })
@@ -17,36 +17,56 @@
         })
       }
 
-      this.shortenUrl = function(longUrl) {
-        console.log('long URL --->', longUrl);
+      this.shortenUrl = function(longUrl, origin, newUrl) {
+        var newUrl = '';
+        var urlObj = '';
         return $http({
-          url: "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDyo_ZNPgLhmKEHYT7elKV7_58-yBFlvlk" ,
+          url: "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDyo_ZNPgLhmKEHYT7elKV7_58-yBFlvlk",
           method: 'POST',
-          // contentType: 'application/json',
-          data: {longUrl : longUrl}
+          data: {longUrl : longUrl, origin : origin}
         })
         .then(function(response) {
-          console.log(response);
-          console.log('short URL --->', response.data.id);
+          newUrl = response.data.id;
+          console.log(response, 'with URLs in it');
+          console.log('long URL --->', longUrl, 'from:', origin, 'short URL --->', newUrl);
+          urlObj = {
+            longUrl: longUrl,
+            newUrl: newUrl,
+            origin: origin
+          }
+          console.log('urlObj contains --->', urlObj);
+          $http.post('/', urlObj)
+          .then(function(response) {
+            console.log(response, urlObj)
+            // self.urls = response.data.urls;
+            self.urls.push(urlObj);
+            longUrl.input = '';
+            origin.input = '';
+          })
+          .catch(function(err) {
+            console.log('error', err)
+          });
         })
-        // .then(function(response) {
-        //   if (response.data.status === 200) {
-        //     self.urls.push(longUrl);
-        //   }
-        // })
       }
 
-      function addUrl(newUrl) {
-        console.log('shorten')
-        $http.post('/urls', newUrl)
-        .then(function(response) {
-          self.urls = response.data.urls;
-          newUrl.input = '';
-        })
-        .catch(function(err) {
-          console.log('error', err)
-        });
-      }
+      // function addUrl(longUrl, origin, newUrl) {
+      //   // self.newUrl = response.data.id;
+      //   console.log('add to db --->', longUrl, origin, newUrl)
+      //   $http.post('/', longUrl, origin, newUrl)
+      //   .then(function(response) {
+      //     console.log(response)
+      //     self.urls = response.data.urls;
+      //     longUrl.input = '';
+      //   })
+      //   .then(function(response) {
+      //     if (response.data.status === 200) {
+      //       self.urls.push(urlObj);
+      //     }
+      //   })
+      //   .catch(function(err) {
+      //     console.log('error', err)
+      //   });
+      // }
 
       function updateUrl(url) {
         $http.put(`/urls/${url._id}`, url)
@@ -69,7 +89,7 @@
         console.log('clearing');
       }
 
-      this.addUrl = addUrl;
+      // this.addUrl = addUrl;
       this.updateUrl = updateUrl;
       this.removeUrl = removeUrl;
       this.clearHistory = clearHistory;

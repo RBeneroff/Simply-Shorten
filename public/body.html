@@ -1,11 +1,15 @@
 
 <div class='shorten'>
-  <form class="long-url" ng-submit='site.addUrl(newUrl)'>
+  <form class="long-url" ng-submit='site.shortenUrl(longUrl, origin, newUrl)'>
+    <!-- ng-submit='site.addUrl(longUrl, origin)' -->
     <input type="text" ng-model="longUrl" placeholder="enter extremely long URL here">
+    <input type="text" ng-model="origin" placeholder="where url is from">
+    <input type="text" ng-model="newUrl" value={{site.newUrl}}>
     <br>
-    <button type="button" name="button" ng-click='site.shortenUrl(longUrl)'>Shorten</button>
+    <button type="submit" name="button">Shorten</button>
+    <!-- ng-click='site.shortenUrl(longUrl, origin)' -->
   </form>
-  <h4>Output short URL here</h4>
+  <h4>Output short URL here {{site.newUrl}}</h4>
 </div>
 
 <div class='history'>

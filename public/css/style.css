@@ -16,25 +16,71 @@
 .side {
   background-color: #96FFC1;
   height: 100vh;
-  width: 30%;
+  /*width: 30%;*/
 }
 
 .shorten {
   padding: 5vh;
+  /*margin-top: -5vh;*/
   margin-left: 30vh;
 }
 
+.form-container{
+  /*margin-top: -3.5vh;*/
+}
+
 .labels {
-  margin-left: -30vh;
-  /*margin-top: 10vh;*/
+  /*margin-left: -30vh;*/
   font-family: Bebas Neue;
   font-size: 20px;
 }
 
 .history {
-  margin-top: 10vh;
-  padding: 3vh;
-  margin-left: 35vh;
+  /*margin-top: 10vh;
+  padding: 3vh;*/
+  /*margin-left: 35vh;*/
+}
+
+.form-container {
+  /*width: 50%;*/
+}
+
+#flex {
+  /*margin-left: 35vh;  */
+  display: flex;
+  align-items: center;
+  /*display: inline-block;*/
+  /*flex-flow: row wrap;*/
+  /*flex-direction: row;*/
+  /*justify-content: space-between;*/
+}
+
+.URL {
+  /*flex: 1;*/
+  margin: 10px;
+  /*display: inline-block;*/
+}
+
+.remove-button {
+  font-family: Bebas Neue;
+  border-style: solid;
+  border-width: 0px 0px 0px;
+  box-shadow: 0 -2px 2px #717F77 inset;
+  color: black;
+  text-align: center;
+  display: inline-block;
+  font-style: normal;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: all 200ms ease-in-out 0s;
+  white-space: nowrap;
+  font-size: 12px;
+  background-color:  #E3FFEE;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .button {

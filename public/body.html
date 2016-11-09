@@ -19,8 +19,8 @@
 <div class='history'>
   <!-- <h1>ng-repeat here: {{site.urls}}</h1> -->
   <div class='repeat-urls' ng-repeat='url in site.urls'>
-    <p>Extremely long URL {{url.longUrl}}</p>
-    <p>Shortened URL {{url.newUrl}}</p>
+    <p>{{url.longUrl}}</p>
+    <p><a href="{{url.newUrl}}" target="_blank">{{url.newUrl}}</a></p>
     <form ng-submit='site.updateUrl(url)'>
       <input ng-model='url.origin'></input>
       <button type="submit" name="button">Update</button>

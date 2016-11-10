@@ -1,11 +1,17 @@
+require('dotenv').config();
 var express        = require('express'),
     bodyParser     = require('body-parser'),
     mongoose       = require('mongoose'),
     logger         = require('morgan'),
     port           = process.env.PORT || 3000,
-    Schema           = require('./models/schema'), //needed?
+    Schema         = require('./models/schema'), //needed?
     app            = express();
 var path           = require('path');
+// var envs = require('envs');
+
+// env.trace = true;
+// app.set('envs', envs('key'));
+var key = process.env.API_KEY;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,10 +34,12 @@ db.once('open', function() {
   console.log("database connected!");
 });
 
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 var urlsController = require("./controllers/urlsController.js");
 app.use('/urls', urlsController);
+
 // app.use('/', require('./controllers/urlsController.js'));
 
 // app.get('/', function(req, res) {
@@ -41,6 +49,8 @@ app.use('/urls', urlsController);
 // app.use(function(req, res) {
 //     res.sendFile(__dirname + '/public/index.html');
 // });
+
+// dotenv.load();
 
 app.listen(process.env.PORT || 3000, function() {
 console.log('I HERE ---> 3000');

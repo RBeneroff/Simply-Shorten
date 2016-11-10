@@ -17,14 +17,18 @@
     "url": "https://github.com/RBeneroff/Simply-Shorten/issues"
   },
   "engines": {
-  "node": "7.0.0"
+    "node": "7.0.0"
   },
   "homepage": "https://github.com/RBeneroff/Simply-Shorten#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "envs": "^0.1.6",
     "express": "^4.14.0",
+    "http": "0.0.0",
     "mongoose": "^4.6.6",
     "morgan": "^1.7.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "request": "^2.78.0"
   }
 }

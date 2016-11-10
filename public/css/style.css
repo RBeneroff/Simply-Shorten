@@ -2,46 +2,72 @@
   margin: 0;
 }
 
+a {
+  text-decoration: underline;
+  color: black;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
 #title {
   /*text-align: center;*/
-  padding: 2vh 0 2vh 2vh;
-  font-size: 7vh;
+  padding: 6vh 0 0vh 4vh;
+  font-size: 8vh;
+  /*margin-top: -12vh;*/
+  text-decoration: underline;
   /*background-color: #96FFC1;*/
   font-family: Bebas Neue;
-  /*-webkit-box-shadow: 0 8px 6px -6px #717F77;
-  -moz-box-shadow: 0 8px 6px -6px #717F77;
-  box-shadow: 0 8px 6px -6px #717F77;*/
+  color: white;
+  /*-webkit-box-shadow: 0 8px 6px 6px #717F77;
+  -moz-box-shadow: 0 8px 6px 6px #717F77;
+  box-shadow: 0 8px 6px 6px #717F77;*/
 }
 
 body {
-background-image: url('background-05.png');
+  /*background: #96FFC1;*/
+background-image: url('background-06.png');
+background-size: cover;
+color: black;
+font-family: 'Montserrat', sans-serif;
 }
 
 .top {
-  background-color: #96FFC1;
-  height: 13vh;
+  /*background-color: #96FFC1;*/
+  /*background-color: #333333;*/
+  /*background-image: url('IMG_2805.JPG');*/
+  zoom: .35;
+  height: 80vh;
   width: 100%;
 }
 
 .shorten {
   padding: 5vh;
-  margin-left: 30vh;
+  margin-left: 20vh;
 }
 
 .form-container{
-  margin-top: -9vh;
+  /*margin-top: -9vh;*/
 }
 
 .labels {
-  margin: 10vh 0 0 5vh;
+  margin: 10vh 0 0 0;
   font-family: Bebas Neue;
-  font-size: 20px;
+  font-size: 30px;
+}
+
+.label2 {
+  /*margin: 0vh 0 0 5vh;*/
+  font-family: Bebas Neue;
+  font-size: 30px;
 }
 
 .history {
   padding: 5vh;
-  margin-top: -9vh;
-  margin-left: 30vh;
+  /*margin-top: -9vh;*/
+  margin-left: 20vh;
 }
 
 .form-container {
@@ -49,17 +75,21 @@ background-image: url('background-05.png');
 }
 
 #flex {
-  display: flex;
-  align-items: baseline;;
-  justify-content: space-around;
+  /*display: flex;
+  align-items: baseline;
+  flex-direction: row;
+  justify-content: space-around;*/
+  margin-right: 1vh;
+  display: inline-block;
+  padding: 2vh;
 }
 
 .URL {
-  margin: 10px;
+  margin: 10px 10px 10px 0px;
 }
 
 #cut-off-length {
-  width: 15vh;
+  width: 20vh;
   overflow: scroll;
 }
 
@@ -79,7 +109,7 @@ background-image: url('background-05.png');
   transition: all 200ms ease-in-out 0s;
   white-space: nowrap;
   font-size: 12px;
-  background-color:  #E3FFEE;
+  background-color: white;
   cursor: pointer;
   border-radius: 5px;
   text-align: center;
@@ -107,18 +137,19 @@ background-image: url('background-05.png');
   font-weight: 700;
   padding: 19px 30px 18px 39px;
   font-size: 18px;
-  background-color:  #E3FFEE;
+  /*background-color:  #E3FFEE;*/
+  background-color:  white;
   cursor: pointer;
   border-radius: 5px;
   text-align: center;
-  margin: 2vh 2vh 2vh 2vh;
+  margin: 2vh 0vh 0vh 0vh;
 }
 
 form.input input,
 form.input select {
-  /*font-family: Georgia, "Times New Roman", Times, serif;*/
+  font-family: 'Montserrat', sans-serif;
   /*border: none;*/
-  width: 100vh;
+  width: 60vh;
   height: 50px;
   border-radius: 4px;
   font-size: 16px;
@@ -134,7 +165,55 @@ form.input select {
   /*-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;*/
   /*margin-bottom: 30px;*/
+  background: none;
+  margin: 2vh 0vh 0vh 0vh;
   outline: 0;
   border-width: 0 0 2px 0;
-  border-color: #E3FFEE;
+  /*border-color: #E3FFEE;*/
+    border-color: white;
+}
+
+form.URL input,
+form.URL select {
+  font-family: 'Montserrat', sans-serif;
+  /*border: none;*/
+  width: 200px;
+  /*height: 50px;*/
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 0;
+  outline: 0;
+  /*padding: 7px;*/
+  min-width: 22%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  /*background-color: #CCCCCC;*/
+  /*color:#8a97a0;*/
+  /*-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;*/
+  /*margin-bottom: 30px;*/
+  background: none;
+  /*margin: 2vh 0vh 0vh 0vh;*/
+  outline: 0;
+  border-width: 0 0 2px 0;
+  /*border-color: #E3FFEE;*/
+  border-color: black;
+  /*color: white;*/
+}
+
+::-webkit-input-placeholder {
+   color: white;
+}
+
+:-moz-placeholder {
+   color: white;
+}
+
+::-moz-placeholder {
+   color: white;
+}
+
+:-ms-input-placeholder {
+   color: white;
 }

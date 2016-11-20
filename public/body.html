@@ -14,7 +14,7 @@
   <div class='shorten'><br>
     <h3 class='labels'>Unecessarily Long Url</h3>
     <div class='form-container'>
-      <form class='input' class="long-url" ng-submit='site.shortenUrl(longUrl, origin, newUrl)'>
+      <form name='form' class='input' class="long-url" ng-submit='site.shortenUrl(longUrl, origin, newUrl)'>
           <input class='inputs' type="text" ng-model="longUrl" placeholder="www.extremely-long-url-here.com">
           <input class='inputs' type="text" ng-model="origin" placeholder="Origin (Ex: NY Times)">
         <br>

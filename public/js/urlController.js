@@ -34,8 +34,6 @@
           }
           $http.post('/urls', urlObj)
           .then(function(response) {
-              longUrl.input = '';
-              origin.input = '';
               self.urls.push(urlObj);
               console.log(urlObj, 'after saving');
               console.log(urlObj.newUrl);

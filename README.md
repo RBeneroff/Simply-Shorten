@@ -10,3 +10,6 @@ A user also has the option of providing the origin or description of the link, i
 API: https://developers.google.com/url-shortener/v1/getting_started
 
 Technologies: Angular, Express, MongoDB, Node
+
+Unsolved Problems:
+- The form won't clear after submitting

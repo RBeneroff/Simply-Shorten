@@ -11,36 +11,32 @@
 </div>
 
 <div class='container'>
-
-<div class='shorten'><br>
-  <h3 class='labels'>Unecessarily Long Url</h3>
-  <div class='form-container'>
-  <form class='input' class="long-url" ng-submit='site.shortenUrl(longUrl, origin, newUrl)'>
-    <!-- <div class='flex'> -->
-      <input class='inputs' type="text" ng-model="longUrl" placeholder="www.extremely-long-url-here.com">
-      <input class='inputs' type="text" ng-model="origin" placeholder="Origin (Ex: NY Times)">
-    <!-- </div> -->
-    <br>
-    <button class='button' type="submit" name="button">Shorten</button>
-  </form>
-  </div>
-</div>
-
-<div class='history'>
-  <div class='form-container'>
-    <h3 class='label2'>URL History</h3><br>
-  <div id='flex' class='repeat-urls' ng-repeat='url in site.urls'>
-    <p id='cut-off-length' class='URL'>{{url.longUrl}}</p>
-    <p class='URL'><a href="{{url.newUrl}}" target="_blank">{{url.newUrl}}</a></p>
-    <form class='URL' ng-submit='site.updateUrl(url)'>
-      <input ng-model='url.origin'></input>
-      <button class='remove-button' type="submit" name="button">Update</button>
-          <button class='remove-button' type="button" name="button" ng-click='site.removeUrl(url)'>delete </button>
-    </form>
+  <div class='shorten'><br>
+    <h3 class='labels'>Unecessarily Long Url</h3>
+    <div class='form-container'>
+      <form class='input' class="long-url" ng-submit='site.shortenUrl(longUrl, origin, newUrl)'>
+          <input class='inputs' type="text" ng-model="longUrl" placeholder="www.extremely-long-url-here.com">
+          <input class='inputs' type="text" ng-model="origin" placeholder="Origin (Ex: NY Times)">
+        <br>
+        <button class='button' type="submit" name="button">Shorten</button>
+      </form>
     </div>
-  <br><br>
   </div>
-  <button id='clear-all' class='button' type="button" name="button" ng-click='site.clearHistory(urls)'>Clear All History</button>
-</div>
 
+  <div class='history'>
+    <div class='form-container'>
+      <h3 class='label2'>URL History</h3><br>
+      <div id='flex' class='repeat-urls' ng-repeat='url in site.urls'>
+        <p id='cut-off-length' class='URL'>{{url.longUrl}}</p>
+        <p class='URL'><a href="{{url.newUrl}}" target="_blank">{{url.newUrl}}</a></p>
+        <form class='URL' ng-submit='site.updateUrl(url)'>
+          <input ng-model='url.origin'></input>
+          <button class='remove-button' type="submit" name="button">Update</button>
+          <button class='remove-button' type="button" name="button" ng-click='site.removeUrl(url)'>delete </button>
+        </form>
+      </div>
+      <br><br>
+    </div>
+    <button id='clear-all' class='button' type="button" name="button" ng-click='site.clearHistory(urls)'>Clear All History</button>
+  </div>
 </div>

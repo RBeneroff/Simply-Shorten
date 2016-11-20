@@ -8,8 +8,6 @@ var UrlSchema = new Schema({
   newUrl: String,
   origin: String,
   field: String
-  // createdAt: Date,
-  // updatedAt: Date,
 });
 
 var UrlModel = mongoose.model('Url', UrlSchema);

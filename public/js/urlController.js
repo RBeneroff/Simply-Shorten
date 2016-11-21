@@ -35,15 +35,25 @@
           $http.post('/urls', urlObj)
           .then(function(response) {
               self.urls.push(urlObj);
-              // this.longUrl = '';
-              // this.origin = '';
               console.log(urlObj, 'after saving');
               console.log(urlObj.newUrl);
+          })
+          .then(function(response) {
+            $http.get('/urls')
+            .then(function(response) {
+              self.urls = response.data.urls;
+            })
           })
           .catch(function(err) {
             console.log('error', err)
           });
         })
+      }
+
+      function clear() {
+        console.log('clearing');
+        var frm = document.getElementsByName('form')[0];
+        frm.reset();
       }
 
       function updateUrl(url) {
@@ -54,12 +64,13 @@
         })
       }
 
-      function removeUrl(url, index) {
+      function removeUrl(url) {
         console.log('clicked')
         $http.delete(`/urls/${url._id}`, url)
         .then(function(response) {
           console.log(response);
           self.url = response.data.url;
+          var index = self.urls.indexOf(url);
           self.urls.splice(index, 1);
         })
       }
@@ -75,6 +86,7 @@
       this.updateUrl = updateUrl;
       this.removeUrl = removeUrl;
       this.clearHistory = clearHistory;
+      this.clear = clear;
 
     } //SiteController
 })() //IIFE

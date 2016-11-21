@@ -60,12 +60,13 @@
         })
       }
 
-      function removeUrl(url, index) {
+      function removeUrl(url) {
         console.log('clicked')
         $http.delete(`/urls/${url._id}`, url)
         .then(function(response) {
           console.log(response);
           self.url = response.data.url;
+          var index = self.urls.indexOf(url);
           self.urls.splice(index, 1);
         })
       }

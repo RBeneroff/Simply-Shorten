@@ -35,10 +35,14 @@
           $http.post('/urls', urlObj)
           .then(function(response) {
               self.urls.push(urlObj);
-              // this.longUrl = '';
-              // this.origin = '';
               console.log(urlObj, 'after saving');
               console.log(urlObj.newUrl);
+          })
+          .then(function(response) {
+            $http.get('/urls')
+            .then(function(response) {
+              self.urls = response.data.urls;
+            })
           })
           .catch(function(err) {
             console.log('error', err)

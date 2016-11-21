@@ -46,6 +46,12 @@
         })
       }
 
+      function clear() {
+        var frm = document.getElementsByName('form')[0];
+        frm.reset();
+        // return false;
+      }
+
       function updateUrl(url) {
         console.log('clicking udpate', url);
         $http.put(`/urls/${url._id}`, url)

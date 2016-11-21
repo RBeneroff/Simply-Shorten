@@ -47,9 +47,9 @@
       }
 
       function clear() {
+        console.log('clearing');
         var frm = document.getElementsByName('form')[0];
         frm.reset();
-        // return false;
       }
 
       function updateUrl(url) {
@@ -81,6 +81,7 @@
       this.updateUrl = updateUrl;
       this.removeUrl = removeUrl;
       this.clearHistory = clearHistory;
+      this.clear = clear;
 
     } //SiteController
 })() //IIFE
